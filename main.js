@@ -1,14 +1,17 @@
-function processData(recipePromise) {
-    console.log(recipePromise)
-    console.log(recipePromise.results[0].id)
+async function processData(recipeObj) {
+    const id = recipeObj.results[0].id
+    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=29f96c91e7b64bd690b4d3bbb695847b`)
+    const recipe = await res.json();
+    recipe[0].steps.forEach(x => console.log(x.step))
 }
 
 async function requestRecipeId() {
     // Request all recipes for a certain meal and cuisine type
-    const meal = "appetizer";
+    const meal = "main"; // appetizer, main course, desert
     const cuisine = "italian"
     const res = await fetch(`https://api.spoonacular.com/recipes/search?&instructionsRequired=true&type=${meal}&cuisine=${cuisine}&apiKey=29f96c91e7b64bd690b4d3bbb695847b`)
     const recipe = await res.json();
+    console.log(recipe)
     processData(recipe);
 }
 
