@@ -19,4 +19,12 @@ async function requestRecipeId() {
 
 // requestRecipeId()
 
-// fetch("https://api.spoonacular.com/food/products/search?query=yogurt&number=2&apiKey=29f96c91e7b64bd690b4d3bbb695847b").then(res => res.json()).then(data => console.log(data))
+const recipeBtn = document.querySelector("#get-recipes")
+recipeBtn.addEventListener("click", fetchRecipeBtn);
+
+function fetchRecipeBtn() {
+    const diet = document.querySelector('input[name="diet"]:checked').value
+    const intolerances = Array.from(document.querySelectorAll('input[name="intolerances"]')).filter(x => x.checked).map(x => x.value)
+    const cusine = document.querySelector('input[name="cusine"]:checked').value
+    requestRecipeId(diet, intolerances, cusine);
+}
