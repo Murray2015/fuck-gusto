@@ -4,8 +4,12 @@
 
 Do while
 Get random recipe
-check if recipe has allergens
-serve up random recipe
+
+- Specify intolerances
+- Choose recipe type (italian, greek, etc)
+- Generate a new random combination
+
+  serve up random recipe
 
 ### Stretch goals
 
