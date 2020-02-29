@@ -1,0 +1,10 @@
+button {
+  border: 1px solid black;
+  height: 1.5em;
+  border-radius: 10px;
+}
+
+.selectedBtn {
+  background-color: lightblue;
+  font-weight: bold;
+}

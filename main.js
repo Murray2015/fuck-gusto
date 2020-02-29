@@ -6,11 +6,17 @@ const coursesOne = document.querySelector("#get-1-course");
 const coursesThree = document.querySelector("#get-3-courses");
 coursesOne.addEventListener("click", () => setCourses(1));
 coursesThree.addEventListener("click", () => setCourses(3));
-function setCourses(num) {
-  numCourses = num;
-}
 
 // Function to get the required number of recipes set by numCourses
+function setCourses(num) {
+  if (num !== numCourses) {
+    coursesOne.classList.toggle("selectedBtn");
+    coursesThree.classList.toggle("selectedBtn");
+    numCourses = num;
+  }
+}
+
+// Get recipe(s)
 
 // Function to return 1 recipe
 
@@ -26,10 +32,10 @@ async function processData(recipeObj) {
 async function requestRecipeId(
   diet = null,
   intolerances = null,
-  cusine = null
+  cusine = null,
+  meal = "main"
 ) {
   // Request all recipes for a certain meal and cuisine type
-  const meal = "main"; // appetizer, main course, desert
   const dietString = diet ? `&diet=${diet}` : "";
   const cusineString = cusine ? `&cuisine=${cusine}` : "";
   const intolerancesString = intolerances
@@ -67,5 +73,12 @@ function fetchRecipeBtn() {
     .filter(x => x.checked)
     .map(x => x.value);
   const cusine = document.querySelector('input[name="cusine"]:checked').value;
-  requestRecipeId(diet, intolerances, cusine);
+  // Fetch recipes
+  if (numCourses === 1) {
+    requestRecipeId(diet, intolerances, cusine, "main");
+  } else if (numCourses === 3) {
+    requestRecipeId(diet, intolerances, cusine, "appetizer");
+    requestRecipeId(diet, intolerances, cusine, "main");
+    requestRecipeId(diet, intolerances, cusine, "desert");
+  }
 }

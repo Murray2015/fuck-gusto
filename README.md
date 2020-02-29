@@ -8,7 +8,9 @@
 - ~~Choose recipe type (italian, greek, etc)~~
 - ~~Get a recipe~~
 - ~~Choose 1 or 3 courses on homepage~~
-- Get 3 recipes
+- ~~colour button re. which is selected~~
+- ~~Get 3 recipes~~
+- Refactor recipe request
 - Generate a new random combination if don't like one recipe
 - Generate combined shopping list
 - Generate recipe steps
