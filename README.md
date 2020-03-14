@@ -10,6 +10,7 @@
 - ~~Choose 1 or 3 courses on homepage~~
 - ~~colour button re. which is selected~~
 - ~~Get 3 recipes~~
+- ~~Make recipe random~~
 - Refactor recipe request
 - Generate a new random combination if don't like one recipe
 - Generate combined shopping list
