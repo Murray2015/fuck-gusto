@@ -48,6 +48,8 @@ function fetchRecipeBtn() {
     requestRecipeId(diet, intolerances, cusine, "main");
     requestRecipeId(diet, intolerances, cusine, "desert");
   }
+  // Change recipe button text to reflect getting a new recipe
+  recipeBtn.innerText = "Get a different recipe!";
 }
 
 // Function to get recipe IDs
