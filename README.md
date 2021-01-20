@@ -1,4 +1,4 @@
-# Fuck Gusto
+# Anti Gusto
 
 ## A random recipe generator for your local supermarket
 
